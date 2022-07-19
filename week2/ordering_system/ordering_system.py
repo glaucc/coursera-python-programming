@@ -61,7 +61,7 @@ def calculate_tax(subtotal):
     ### WRITE SOLUTION HERE
 
     tax = float(subtotal * 15 / 100)
-    round(tax, 2)
+    tax = round(tax, 2)
     return tax
     
     raise NotImplementedError()
