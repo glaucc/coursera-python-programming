@@ -61,6 +61,7 @@ def calculate_tax(subtotal):
     ### WRITE SOLUTION HERE
 
     tax = float(subtotal * 15 / 100)
+    round(tax, 2)
     return tax
     
     raise NotImplementedError()
@@ -98,7 +99,6 @@ def summarize_order(order):
     names = []
     names = [ r["name"] for r in order ]
 
-    names = sorted(names)
     print(f"{names} => {total}")
 
     # float(total)
