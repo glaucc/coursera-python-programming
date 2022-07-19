@@ -27,7 +27,7 @@ def calculate_subtotal(order):
     """
     print('Calculating bill subtotal...')
     ### WRITE SOLUTION HERE
-    subtotal_price = 0
+    subtotal = 0
 
     prices = []
 
@@ -35,18 +35,17 @@ def calculate_subtotal(order):
 
     for x in prices:
         float(x)
-        subtotal_price = subtotal_price + x
+        subtotal = subtotal + x
     
 
 
     # subtotal_price = subtotal_price + [order[i]["price"]
-    
-    return subtotal_price
+    return subtotal
     raise NotImplementedError()
 
 
 
-def calculate_tax(subtotal_price):
+def calculate_tax(subtotal):
     """ Calculates the tax of an order
 
     [IMPLEMENT ME] 
@@ -61,12 +60,12 @@ def calculate_tax(subtotal_price):
     print('Calculating tax from subtotal...')
     ### WRITE SOLUTION HERE
 
-    tax_price = round(subtotal_price * 15 / 100, 2)
-    return tax_price
+    tax = float(subtotal * 15 / 100)
+    return tax
     
     raise NotImplementedError()
 
-def summarize_order(order, subtotal_price, tax_price):
+def summarize_order(order):
     """ Summarizes the order
 
     [IMPLEMENT ME]
@@ -86,12 +85,21 @@ def summarize_order(order, subtotal_price, tax_price):
     ### WRITE SOLUTION HERE
 
 
+    subtotal = calculate_subtotal(order)
+    tax = calculate_tax(subtotal)
+
+    total = round(float(subtotal + tax), 2)    
+
+    print("\n")
+    print("\nSubtotal for the order is: " + str(subtotal))
+
+    print("Tax for the order is: " + str(tax))
+
     names = []
     names = [ r["name"] for r in order ]
 
-
-    total = subtotal_price + tax_price
-
+    names = sorted(names)
+    print(f"{names} => {total}")
 
     # float(total)
 
@@ -133,18 +141,12 @@ Feel free to change, uncomment, and add these as you wish.
 def main():
     order = take_order()
     print("\n")
+
     print_order(order)
 
-    print("\n")
-    subtotal = calculate_subtotal(order)
-    print("\nSubtotal for the order is: " + str(subtotal))
-    print("\n")
+    summarize_order(order)
 
-    tax = calculate_tax(subtotal)
-    print("\nTax for the order is: " + str(tax))
-
-
-    summarize_order(order, subtotal, tax)
+    # items, subtotal = summarize_order(order, subtotal_price, tax_price)
 
     # total = summarize_order(order)
     # print("\nTotal price is: " + str(total))
