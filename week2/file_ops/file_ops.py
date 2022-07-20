@@ -68,7 +68,8 @@ def write_first_line_to_file(file_contents, output_filename):
     w_file.write(f_line)
     # f_line.close()
     w_file.close()
-
+    
+    return w_file
     # raise NotImplementedError()
 
 
@@ -99,8 +100,8 @@ def read_even_numbered_lines(file_name):
     for i in range(len(third_read)):
         if (i % 2 == 1):
             even_list.append(third_read[i])
-    even_list_edited = [x[:-1] for x in even_list]
-    return even_list_edited
+    # even_list_edited = [x[:-1] for x in even_list]
+    return third_read
     raise NotImplementedError()
 
 def read_file_in_reverse(file_name):
@@ -124,9 +125,9 @@ def read_file_in_reverse(file_name):
     fourth_read = fourth_read.readlines()
     fourth_read.reverse()
 
-    reversed_list = [x[:-1] for x in fourth_read]
+    # reversed_list = [x[:-1] for x in fourth_read]
 
-    return reversed_list
+    return fourth_read
 
 
     raise NotImplementedError()
