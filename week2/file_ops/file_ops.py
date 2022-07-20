@@ -96,12 +96,12 @@ def read_even_numbered_lines(file_name):
     
     # list_len = len(third_read)
     # print(list_len)
-
+    # print(third_read)
     for i in range(len(third_read)):
-        if (i % 2 == 1):
+        if (i % 2 == 1 and i != 0):
             even_list.append(third_read[i])
     # even_list_edited = [x[:-1] for x in even_list]
-    return third_read
+    return even_list
     raise NotImplementedError()
 
 def read_file_in_reverse(file_name):
