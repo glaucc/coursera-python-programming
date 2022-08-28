@@ -1,4 +1,4 @@
-import addition
+import practice.addition as addition
 import pytest
 
 def test_add():
